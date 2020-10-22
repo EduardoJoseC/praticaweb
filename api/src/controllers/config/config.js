@@ -1,18 +1,11 @@
 module.exports = {
-    development: {
-        database: {
-            host: 'localhost',
-            port: 3306,
-            name: 'Cadastro de Usuários',
-            dialect: 'mysql',
-            user: 'root',
-            password: '123456'
-        }
-    },
-    production:{
-        database:{
-            host: process.env.DB_HOST,
-            port: process.env.DB_
+    development : {
+            database : {
+                host: 'localhost', // O host do banco. Ex: localhost
+                port: '3306', // Porta a ser utilizada para conexão com o banco
+                user: 'root', // Um usuário do banco.  
+                password: '', // A senha do usuário. 
+                database: 'agendamento' // Nome da base de dados que vai ser utilizada
         }
     }
 };

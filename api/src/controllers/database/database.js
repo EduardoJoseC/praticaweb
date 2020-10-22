@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+/*const Sequelize = require('sequelize')
 
 const environment = process.env.NODE_ENV || "development";
 
@@ -12,4 +12,4 @@ const sequelize = new Sequelize(
         host: config.database.host,
         dialect: config.database.dialect
     }
-);
+);*/
