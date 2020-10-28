@@ -17,30 +17,67 @@ con.connect((err) => {
     console.log('Conexao Realizada!')
 })
 
-const agendamento = {nome:'Novo Nome', email: 'fujimail@uol.com.br', ativo:0 }
+//criando base de dados para cadastro
+/*con.query('CREATE DATABASE atividade', (err,rows) => {
+    if(err) throw err
+    console.log("Data Base Criado com Sucesso");
+})*/
 
-/*con.query('INSERT INTO agendamento SET ? ', agendamento, (err,rows) => {
+//acessando a base de dados para criação da tabela e inserção de dados
+con.query('USE atividade', (err,rows) => {
+    if(err) throw err
+    console.log("Conectado ao Banco Atividade");
+})
+
+//Criação da Tabela no phpMyAdmin
+/*CREATE TABLE IF NOT EXISTS `cadastro` (
+    codigo int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email varchar(255) NOT NULL,
+    nome varchar(255) NOT NULL,
+    ativo BOOLEAN DEFAULT false
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/
+
+
+//const cadastro = {nome:'Eduardo', email: 'edu@bol.com.br', ativo:0 }
+
+/*con.query('INSERT INTO cadastro SET ? ', cadastro, (err,rows) => {
     if(err) throw err
     console.log("Registro salvo com sucesso");
 })*/
 
-/*con.query('select * from agendamento', (err,rows) => {
+//Listando para verificar o cadastro no terminal
+con.query('select * from cadastro', (err,rows) => {
     if(err) throw err
-    console.log('Agendamentos', rows, '\n\n')
-})*/
 
-con.query('UPDATE agendamento SET nome = ?, email = ? where ID = ? ', ['Eduardo','eduardo.jose@uol.com.br','1'], (err,rows) => {
+    rows.forEach(row => {
+        console.log(`${row.nome} - ${row.email}`);
+    })
+})
+
+//editando o cadastro com o codigo escolhido
+con.query('UPDATE cadastro SET nome = ?, email = ? where CODIGO = ? ', ['Carneiro','carneiro.jose@uol.com.br','3'], (err,rows) => {
     if(err) throw err
     console.log("Registro Atualizado com sucesso");
 })
 
-con.query('DELETE FROM agendamento where ID = ? ', ['1'], (err,resultado) => {
+//listando novamente afim de identificar a edição anterior
+con.query('select * from cadastro', (err,rows) => {
+    if(err) throw err
+
+    rows.forEach(row => {
+        console.log(`${row.nome} - ${row.email}`);
+    })
+})
+
+//Deletando o cadastro com o codigo escolhido
+con.query('DELETE FROM cadastro where CODIGO = ? ', ['4'], (err,resultado) => {
     if(err) throw err
     console.log(`Foram excluida(s) ${resultado.affectedRows} linha(s)`);
 
 })
 
-con.query('select * from agendamento', (err,rows) => {
+//Listando novamente para verificar via console se o cadastro foi excluído
+con.query('select * from cadastro', (err,rows) => {
     if(err) throw err
 
     rows.forEach(row => {
