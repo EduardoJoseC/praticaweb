@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { ContadorComponent } from './contador/contador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RodapeComponent
+    RodapeComponent,
+    ContadorComponent
   ],
   imports: [
     BrowserModule,
