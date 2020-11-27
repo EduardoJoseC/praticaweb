@@ -1,0 +1,17 @@
+{
+    "contato": [
+        {
+            "id": 1,
+            "name": "Dayvison",
+            "accountNumber": "1234"
+        }
+    ],
+
+    "Produtos": [
+        {
+            "id": 1,
+            "name": "Dayvison",
+            "accountNumber": "1234"
+        }
+    ]
+}
